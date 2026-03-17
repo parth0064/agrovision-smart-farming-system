@@ -1,0 +1,368 @@
+{
+  "common": {
+    "status": {
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "rejected": "Rejected",
+      "countered": "Countered"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "collapse": "Collapse",
+    "expand": "Expand"
+  },
+  "hero": {
+    "headline": "Plan Smart. Hold Smart. Sell Smart.",
+    "subheadline": "An AI-powered platform helping farmers make intelligent crop and market decisions.",
+    "cta": "Get Started"
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Everything you need to make smarter farming decisions"
+  },
+  "cards": {
+    "cropPlanning": {
+      "title": "Smart Crop Planning",
+      "desc": "AI-powered crop recommendations based on your land, budget, and market trends."
+    },
+    "priceIntel": {
+      "title": "Price Intelligence",
+      "desc": "Real-time market prices with trend analysis and hold/sell suggestions."
+    },
+    "analytics": {
+      "title": "Advanced Yield Analytics",
+      "desc": "Track your farm's performance with deep-dive analysis of profitable and failed crops."
+    },
+    "shelfLife": {
+      "title": "Shelf-Life Monitoring",
+      "desc": "Track your harvest freshness and get alerts before spoilage."
+    },
+    "govSchemes": {
+      "title": "Government Schemes",
+      "desc": "Discover subsidies, insurance, and support programs available to you."
+    },
+    "chatbot": {
+      "title": "AI Advisory Chatbot",
+      "desc": "Get instant farming advice powered by artificial intelligence."
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Full Name",
+    "language": "Preferred Language",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "buyer": "Buyer",
+    "farmer": "Farmer"
+  },
+  "crop": {
+    "title": "Smart Crop Planning",
+    "landArea": "Land Area (acres)",
+    "budget": "Budget (₹)",
+    "location": "Location",
+    "season": "Season",
+    "prevCrop": "Previous Crop",
+    "submit": "Find Best Crop",
+    "result": "Recommended Crop",
+    "profit": "Predicted Profit",
+    "risk": "Risk Level"
+  },
+  "price": {
+    "title": "Price Intelligence",
+    "current": "Current Price",
+    "trend": "Price Trend",
+    "suggestion": "Suggestion"
+  },
+  "marketPage": {
+    "title": "Market Transparency",
+    "market": "Market",
+    "price": "Price (₹/quintal)",
+    "best": "Best Price"
+  },
+  "shelf": {
+    "title": "Shelf-Life Monitor",
+    "harvest": "Harvest Date",
+    "shelfLife": "Shelf Life",
+    "remaining": "Days Remaining",
+    "safe": "Safe",
+    "warning": "Warning",
+    "risk": "At Risk"
+  },
+  "schemes": {
+    "title": "Government Schemes",
+    "country": "Country",
+    "state": "State",
+    "district": "District",
+    "crop": "Crop",
+    "lossType": "Loss Type",
+    "submit": "Find Schemes"
+  },
+  "chat": {
+    "title": "AI Advisory Chatbot",
+    "placeholder": "Ask about farming...",
+    "powered": "",
+    "greeting": "Hello {{name}}! I'm your AI farming advisor. How can I help you today?"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Change Language",
+    "darkMode": "Dark Mode",
+    "profile": "View Profile",
+    "logout": "Logout"
+  },
+  "landing": {
+    "features": "Features",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "dashboardPage": {
+    "welcome": "Welcome back",
+    "chooseModule": "Choose a module to get started with your farm management.",
+    "activeCrops": "Active Crops",
+    "acrossFields": "Across fields",
+    "alerts": "Alerts",
+    "allSafe": "All crops safe",
+    "schemes": "Schemes",
+    "availableNow": "Available now",
+    "yourPlantedCrops": "Your Planted Crops",
+    "addNewCrop": "Add New Crop",
+    "loading": "Loading active crops...",
+    "noPlantedCrops": "No planted crops",
+    "addCurrentToTrack": "Add your current crops to track daily expenses, monitor growth, and predict profits.",
+    "addCropManually": "Add Crop Manually",
+    "expenses": "Expenses",
+    "planted": "PLANTED",
+    "estProfit": "EST PROFIT",
+    "addExpense": "Add Expense",
+    "viewExpenses": "View Expenses",
+    "stats": {
+      "requested": "Crops Requested",
+      "negotiations": "Negotiations",
+      "deals": "Completed Deals",
+      "actionRequired": "Action required",
+      "successBought": "Successfully bought",
+      "acrossFarmers": "Across all farmers"
+    },
+    "negotiations": "Your Recent Negotiations",
+    "noNegotiations": "No negotiations yet",
+    "noNegotiationsDesc": "Head to the marketplace to find fresh crops from farmers.",
+    "visitMarketplace": "Visit Marketplace"
+  },
+  "marketplace": {
+    "title": "Crop Marketplace",
+    "subtitle": "Browse available crops from farmers and send purchase requests.",
+    "myRequests": "My Requests ({{count}})",
+    "searchPlaceholder": "Search by crop or farmer name...",
+    "noCrops": "No crops available",
+    "noCropsSearch": "No crops match your search.",
+    "noCropsListed": "No farmers have listed crops yet. Check back later!",
+    "freshness": "Freshness",
+    "daysRemaining": "{{remaining}} of {{total}} days remaining",
+    "urgentSell": "Crop nearing spoilage – sell within a few days.",
+    "requestCrop": "Request Crop",
+    "myPurchaseRequests": "My Purchase Requests",
+    "noRequests": "No requests sent yet.",
+    "table": {
+      "farmer": "Farmer",
+      "crop": "Crop",
+      "qty": "Qty",
+      "yourPrice": "Your Price",
+      "counter": "Counter",
+      "status": "Status",
+      "date": "Date",
+      "action": "Action"
+    },
+    "acceptCounter": "Accept Counter",
+    "message": "Message",
+    "acceptConfirm": "Accept counter offer of ₹{{price}}/kg?",
+    "requestModal": {
+      "title": "Request Crop",
+      "subtitle": "{{crop}} from {{farmer}}",
+      "available": "Available: {{qty}} kg • Shelf life: {{days}} days",
+      "qtyLabel": "Quantity (kg)",
+      "qtyPlaceholder": "Max {{qty}} kg",
+      "priceLabel": "Offered Price (₹/kg)",
+      "messageLabel": "Message (optional)",
+      "submit": "Send Request",
+      "sending": "Sending...",
+      "success": "Request sent successfully!"
+    },
+    "freshnessLabels": {
+      "fresh": "Fresh",
+      "urgent": "Urgent Sell",
+      "moderate": "Moderate"
+    },
+    "acceptSuccess": "Offer accepted! Order created.",
+    "na": "N/A",
+    "daysAfter": "Days After",
+    "yourListing": "Your Listing",
+    "askingPrice": "Farmer's Price",
+    "pricePlaceholder": "e.g. 25",
+    "msgPlaceholder": "e.g. Can you sell for ₹23/kg?",
+    "conversation": "Conversation: {{crop}}",
+    "noMessages": "No messages yet.",
+    "replyPlaceholder": "Type your reply...",
+    "sending": "Sending...",
+    "sendMsg": "Send Message",
+    "connError": "Connection error. Please try again."
+  },
+  "buyerRequests": {
+    "title": "Buyer Requests",
+    "newBadge": "{{count}} new",
+    "subtitle": "Manage purchase requests from buyers for your crops.",
+    "filterAll": "All ({{count}})",
+    "filterPending": "Pending ({{count}})",
+    "filterAccepted": "Accepted ({{count}})",
+    "filterRejected": "Rejected ({{count}})",
+    "filterCountered": "Countered ({{count}})",
+    "noRequests": "No requests",
+    "noRequestsDesc": "No buyer requests yet. They will appear here when buyers request your crops.",
+    "noFilteredRequests": "No {{filter}} requests.",
+    "card": {
+      "buyer": "Buyer",
+      "crop": "Crop",
+      "price": "Price",
+      "counter": "Counter: ₹{{price}}/kg",
+      "status": "Status",
+      "message": "Message",
+      "accept": "Accept",
+      "reject": "Reject",
+      "counterBtn": "Counter"
+    },
+    "acceptConfirm": "Accept this request? The crop quantity will be reduced.",
+    "rejectConfirm": "Reject this request?",
+    "counterModal": {
+      "title": "Counter Offer",
+      "desc": "{{buyer}} offered ₹{{price}}/kg for {{qty}} kg of {{crop}}.",
+      "inputLabel": "Your Counter Price (₹/kg)",
+      "cancel": "Cancel",
+      "send": "Send"
+    }
+  },
+  "cropPage": {
+    "title": "Crop Management",
+    "subtitle": "Predict, plant, and track your agricultural expenses.",
+    "tabMyCrops": "My Crops",
+    "tabAI": "AI Prediction Tool",
+    "loading": "Loading crops...",
+    "noCrops": "No active crops",
+    "noCropsDesc": "You haven't added any crops yet. Use the AI Prediction tool to find the best crop for your land.",
+    "goPredict": "Go to Prediction Tool"
+  },
+  "shelfPage": {
+    "title": "Shelf Life Monitoring",
+    "subtitle": "Monitor your harvest health and storage duration in real-time.",
+    "addRecord": "Add Harvest Record",
+    "loading": "Calculating remaining days...",
+    "noCrops": "No Stored Crops",
+    "noCropsDesc": "Start tracking your harvest shelf life by adding a new storage record above."
+  },
+  "schemesPage": {
+    "title": "Government Scheme Finder",
+    "subtitle": "Find eligible agricultural schemes and financial support based on your region and crop.",
+    "btnFind": "Find Eligible Schemes",
+    "btnSearching": "Searching...",
+    "schemesAvailable": "Schemes Available for You",
+    "noSchemes": "No specific schemes found for the selected criteria. Try changing your state or loss type."
+  },
+  "expensesPage": {
+    "title": "Expenses & Profit Tracker",
+    "subtitle": "Record daily worker costs, fertilizers, and track your net profits.",
+    "noActiveCrops": "No Active Crops",
+    "noCropsTitle": "No Crops Available",
+    "noCropsDesc": "You must add a crop to your Dashboard before you can track expenses.",
+    "totalInvested": "Total Invested",
+    "totalRecovered": "Total Recovered",
+    "netProfit": "Current Net Profit",
+    "netDeficit": "Current Net Deficit"
+  },
+  "analytics": {
+    "title": "Data Analytics Dashboard",
+    "profitView": "📈 Profit Analysis",
+    "lossView": "📉 Loss Analysis",
+    "presentBtn": "Present (Active)",
+    "pastBtn": "Past (Archived)",
+    "profitDescCurrent": "Showing active successful harvests",
+    "profitDescPast": "Showing past successful harvests",
+    "lossDescCurrent": "Showing active crop failures",
+    "lossDescPast": "Showing past crop failures",
+    "kpi": {
+      "revenue": "Revenue",
+      "expense": "Expense",
+      "netProfit": "Net Profit",
+      "totalLoss": "Total Loss",
+      "activeCases": "Active Cases",
+      "closedCases": "Closed Cases",
+      "avgLoss": "Average Loss"
+    },
+    "charts": {
+      "profitableCrops": "Most Profitable Crops",
+      "profitDist": "Profit Distribution",
+      "lossAnalysis": "Crop Loss Analysis",
+      "failureReasons": "Failure Reasons"
+    },
+    "table": {
+      "crop": "Crop",
+      "revenue": "Revenue",
+      "expense": "Expense",
+      "profitLoss": "Profit/Loss",
+      "margin": "Margin",
+      "reason": "Failure Reason"
+    },
+    "empty": {
+      "noData": "No {{status}} {{view}} data yet",
+      "profitDesc": "You don't have any {{status}} crops showing profit.",
+      "lossDesc": "Great! No {{status}} crops have reported losses yet."
+    },
+    "failureReasons": {
+      "pest": "Pest Attack",
+      "flood": "Flood",
+      "disease": "Disease",
+      "spoilage": "Storage Spoilage",
+      "market": "Low Market Price"
+    }
+  },
+  "farmerTalk": {
+    "title": "Farmer Talk",
+    "subtitle": "Ask questions, share solutions, and build a community knowledge base for farming.",
+    "askBtn": "Ask Question",
+    "backBtn": "Back to Forum",
+    "filterBy": "Filter by:",
+    "allCrops": "All Crops",
+    "latestQuestions": "Latest Questions",
+    "mostReplies": "Most Replies",
+    "noQuestions": "No questions found",
+    "noQuestionsDesc": "Be the first to ask a question to the community!",
+    "replies": "Replies",
+    "postedOn": "Posted on {{date}}",
+    "farmerAsking": "Farmer asking for help",
+    "communityReplies": "Community Replies ({{count}})",
+    "noReplies": "No replies yet. Be the first to help out!",
+    "originalPoster": "Original Poster",
+    "postReply": "Post your Reply",
+    "replyPlaceholder": "Share your experience or advice here...",
+    "postReplyBtn": "Post Reply",
+    "posting": "Posting...",
+    "guidelines": "Community Guidelines",
+    "guide1": "Be respectful to other farmers.",
+    "guide2": "Share specific, actionable farming advice.",
+    "guide3": "Do not spam or post promotions.",
+    "askModalTitle": "Ask the Community",
+    "askModalDesc": "Describe your crop issue or farming question below to get help from fellow farmers.",
+    "questionTitle": "Question Title",
+    "placeholderTitle": "e.g. How to control whiteflies in Tomato crop?",
+    "category": "Category (Crop Type)",
+    "description": "Detailed Description",
+    "placeholderDesc": "Describe the problem, symptoms on the plants, and what you have already tried...",
+    "postQuestionBtn": "Post Question"
+  }
+}

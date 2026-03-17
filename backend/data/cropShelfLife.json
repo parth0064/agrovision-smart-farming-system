@@ -1,0 +1,42 @@
+[
+    {
+        "crop": "Wheat",
+        "shelf_life_days": 90,
+        "storage_type": "dry_storage"
+    },
+    {
+        "crop": "Rice",
+        "shelf_life_days": 15,
+        "storage_type": "dry_storage"
+    },
+    {
+        "crop": "Maize",
+        "shelf_life_days": 120,
+        "storage_type": "dry_storage"
+    },
+    {
+        "crop": "Soybean",
+        "shelf_life_days": 150,
+        "storage_type": "dry_storage"
+    },
+    {
+        "crop": "Potato",
+        "shelf_life_days": 30,
+        "storage_type": "cold_storage"
+    },
+    {
+        "crop": "Onion",
+        "shelf_life_days": 60,
+        "storage_type": "ventilated_storage"
+    },
+    {
+        "crop": "Tomato",
+        "shelf_life_days": 10,
+        "storage_type": "cold_storage"
+    },
+    {
+        "crop": "Cotton",
+        "shelf_life_days": 365,
+        "storage_type": "dry_storage"
+    }
+]

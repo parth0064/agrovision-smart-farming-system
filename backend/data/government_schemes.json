@@ -1,0 +1,302 @@
+[
+  {
+    "scheme_name": "Pradhan Mantri Fasal Bima Yojana",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "all",
+    "description": "Insurance coverage for crop failure due to flood, drought or pests.",
+    "apply_link": "https://pmfby.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "PM Kisan Samman Nidhi",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "all",
+    "description": "Income support scheme providing ₹6000 per year to farmers.",
+    "apply_link": "https://pmkisan.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Kisan Credit Card",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "financial",
+    "description": "Low interest loans for farmers for agriculture expenses.",
+    "apply_link": "https://www.myscheme.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Soil Health Card Scheme",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "low productivity",
+    "description": "Provides soil nutrient information to farmers.",
+    "apply_link": "https://soilhealth.dac.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "National Horticulture Mission",
+    "state": "all",
+    "district": "all",
+    "crop": "fruits",
+    "loss_type": "all",
+    "description": "Support for fruit and vegetable farmers.",
+    "apply_link": "https://nhm.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Maharashtra Crop Insurance Subsidy",
+    "state": "Maharashtra",
+    "district": "Pune",
+    "crop": "wheat",
+    "loss_type": "flood",
+    "description": "State subsidy for wheat farmers affected by flood.",
+    "apply_link": "https://mahaagri.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Maharashtra Onion Storage Scheme",
+    "state": "Maharashtra",
+    "district": "Nashik",
+    "crop": "onion",
+    "loss_type": "storage loss",
+    "description": "Support for onion storage infrastructure.",
+    "apply_link": "https://mahaagri.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Maharashtra Sugarcane Support Scheme",
+    "state": "Maharashtra",
+    "district": "Kolhapur",
+    "crop": "sugarcane",
+    "loss_type": "low price",
+    "description": "Financial support for sugarcane farmers.",
+    "apply_link": "https://maharashtra.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Bihar Crop Damage Compensation",
+    "state": "Bihar",
+    "district": "Patna",
+    "crop": "rice",
+    "loss_type": "flood",
+    "description": "Compensation scheme for crop loss due to floods.",
+    "apply_link": "https://dbtagriculture.bihar.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Bihar Seed Subsidy Scheme",
+    "state": "Bihar",
+    "district": "Gaya",
+    "crop": "wheat",
+    "loss_type": "low productivity",
+    "description": "Subsidy for high quality seeds.",
+    "apply_link": "https://dbtagriculture.bihar.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Bihar Irrigation Support Scheme",
+    "state": "Bihar",
+    "district": "Nalanda",
+    "crop": "rice",
+    "loss_type": "drought",
+    "description": "Support for irrigation infrastructure.",
+    "apply_link": "https://dbtagriculture.bihar.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Maharashtra Grapes Export Scheme",
+    "state": "Maharashtra",
+    "district": "Nashik",
+    "crop": "grapes",
+    "loss_type": "market loss",
+    "description": "Export promotion scheme for grape farmers.",
+    "apply_link": "https://apeda.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "National Food Security Mission",
+    "state": "all",
+    "district": "all",
+    "crop": "rice",
+    "loss_type": "all",
+    "description": "Increase production of rice and wheat.",
+    "apply_link": "https://nfsm.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Pradhan Mantri Krishi Sinchai Yojana",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "drought",
+    "description": "Irrigation support to farmers.",
+    "apply_link": "https://pmksy.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Agriculture Infrastructure Fund",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "storage loss",
+    "description": "Loans for agriculture infrastructure.",
+    "apply_link": "https://agriinfra.dac.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Punjab Wheat Procurement Scheme",
+    "state": "Punjab",
+    "district": "Ludhiana",
+    "crop": "wheat",
+    "loss_type": "all",
+    "description": "Government procurement support for wheat.",
+    "apply_link": "https://anaajkharid.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "UP Sugarcane Payment Scheme",
+    "state": "Uttar Pradesh",
+    "district": "Meerut",
+    "crop": "sugarcane",
+    "loss_type": "financial",
+    "description": "Ensuring timely payment for sugarcane farmers.",
+    "apply_link": "https://caneup.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Haryana Crop Residue Management",
+    "state": "Haryana",
+    "district": "Karnal",
+    "crop": "rice",
+    "loss_type": "none",
+    "description": "Subsidy for machinery to manage crop residue.",
+    "apply_link": "https://agriharyana.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Karnataka Krishi Bhagya Scheme",
+    "state": "Karnataka",
+    "district": "Dharwad",
+    "crop": "all",
+    "loss_type": "drought",
+    "description": "Dryland farming support and water harvesting.",
+    "apply_link": "https://raitamitra.karnataka.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Tamil Nadu Millet Mission",
+    "state": "Tamil Nadu",
+    "district": "Madurai",
+    "crop": "millets",
+    "loss_type": "all",
+    "description": "Promotion and support for millet cultivation.",
+    "apply_link": "https://tnagrisnet.tn.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Gujarat Sauni Yojana",
+    "state": "Gujarat",
+    "district": "Rajkot",
+    "crop": "all",
+    "loss_type": "drought",
+    "description": "Filling dams with Narmada water for irrigation.",
+    "apply_link": "https://gujarat.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "MP Bhavantar Bhugtan Yojana",
+    "state": "Madhya Pradesh",
+    "district": "Indore",
+    "crop": "soybean",
+    "loss_type": "low price",
+    "description": "Price deficit financing scheme for farmers.",
+    "apply_link": "https://mponline.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "WB Krishak Bandhu",
+    "state": "West Bengal",
+    "district": "Hooghly",
+    "crop": "all",
+    "loss_type": "all",
+    "description": "Financial assistance and death benefit for farmers.",
+    "apply_link": "https://krishakbandhu.net",
+    "type": "state"
+  },
+  {
+    "scheme_name": "Odisha KALIA Scheme",
+    "state": "Odisha",
+    "district": "Ganjam",
+    "crop": "all",
+    "loss_type": "financial",
+    "description": "Livelihood and income support for farmers.",
+    "apply_link": "https://kalia.odisha.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "AP Rythu Bharosa",
+    "state": "Andhra Pradesh",
+    "district": "Guntur",
+    "crop": "all",
+    "loss_type": "all",
+    "description": "Annual financial aid for farmers in AP.",
+    "apply_link": "https://ysrrythubharosa.ap.gov.in",
+    "type": "state"
+  },
+  {
+    "scheme_name": "PM Krishi Sinchai - Per Drop More Crop",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "none",
+    "description": "Subsidy for micro-irrigation systems.",
+    "apply_link": "https://pmksy.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "National Mission on Sustainable Agriculture",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "natural disaster",
+    "description": "Promoting climate-resilient farming practices.",
+    "apply_link": "https://nmsa.dac.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Rashtriya Krishi Vikas Yojana",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "all",
+    "description": "Incentivizing states to increase agricultural investment.",
+    "apply_link": "https://rkvy.nic.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Paramparagat Krishi Vikas Yojana",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "none",
+    "description": "Promoting organic farming across the country.",
+    "apply_link": "https://pkvy.dac.gov.in",
+    "type": "central"
+  },
+  {
+    "scheme_name": "Integrated Schemes on Agricultural Marketing",
+    "state": "all",
+    "district": "all",
+    "crop": "all",
+    "loss_type": "market loss",
+    "description": "Support for agricultural marketing infrastructure.",
+    "apply_link": "https://agmarknet.gov.in",
+    "type": "central"
+  }
+]

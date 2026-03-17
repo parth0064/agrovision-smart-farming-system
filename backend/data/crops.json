@@ -1,0 +1,80 @@
+[
+    {
+        "crop": "Rice",
+        "season": "Kharif",
+        "budget_min": 20000,
+        "budget_max": 60000,
+        "avg_yield": 25,
+        "avg_price": 2000,
+        "risk": "high",
+        "ideal_temp_min": 20,
+        "ideal_temp_max": 35,
+        "ideal_humidity_min": 60,
+        "ideal_humidity_max": 90
+    },
+    {
+        "crop": "Soybean",
+        "season": "Kharif",
+        "budget_min": 15000,
+        "budget_max": 40000,
+        "avg_yield": 18,
+        "avg_price": 3200,
+        "risk": "low",
+        "ideal_temp_min": 20,
+        "ideal_temp_max": 30,
+        "ideal_humidity_min": 40,
+        "ideal_humidity_max": 70
+    },
+    {
+        "crop": "Cotton",
+        "season": "Kharif",
+        "budget_min": 30000,
+        "budget_max": 70000,
+        "avg_yield": 15,
+        "avg_price": 6000,
+        "risk": "high",
+        "ideal_temp_min": 21,
+        "ideal_temp_max": 35,
+        "ideal_humidity_min": 40,
+        "ideal_humidity_max": 65
+    },
+    {
+        "crop": "Wheat",
+        "season": "Rabi",
+        "budget_min": 20000,
+        "budget_max": 50000,
+        "avg_yield": 20,
+        "avg_price": 2100,
+        "risk": "low",
+        "ideal_temp_min": 10,
+        "ideal_temp_max": 25,
+        "ideal_humidity_min": 30,
+        "ideal_humidity_max": 60
+    },
+    {
+        "crop": "Maize",
+        "season": "Kharif",
+        "budget_min": 15000,
+        "budget_max": 35000,
+        "avg_yield": 22,
+        "avg_price": 1800,
+        "risk": "low",
+        "ideal_temp_min": 18,
+        "ideal_temp_max": 32,
+        "ideal_humidity_min": 50,
+        "ideal_humidity_max": 80
+    },
+    {
+        "crop": "Sugarcane",
+        "season": "Annual",
+        "budget_min": 40000,
+        "budget_max": 90000,
+        "avg_yield": 35,
+        "avg_price": 3200,
+        "risk": "high",
+        "ideal_temp_min": 20,
+        "ideal_temp_max": 38,
+        "ideal_humidity_min": 55,
+        "ideal_humidity_max": 85
+    }
+]

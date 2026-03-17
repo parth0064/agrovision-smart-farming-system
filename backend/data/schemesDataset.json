@@ -1,0 +1,71 @@
+{
+    "central_schemes": [
+        {
+            "scheme_name": "PM-KISAN Samman Nidhi",
+            "description": "Provides direct income support of ₹6000 per year to eligible farmer families through Direct Benefit Transfer.",
+            "government_level": "Central Government",
+            "eligibility": "Small and marginal farmers across India",
+            "apply_link": "https://pmkisan.gov.in"
+        },
+        {
+            "scheme_name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+            "description": "Crop insurance scheme protecting farmers against crop loss due to natural disasters, pests and diseases.",
+            "government_level": "Central Government",
+            "eligibility": "Farmers growing notified crops",
+            "apply_link": "https://pmfby.gov.in"
+        },
+        {
+            "scheme_name": "Pradhan Mantri Krishi Sinchai Yojana (PMKSY)",
+            "description": "Scheme aimed at improving irrigation facilities and promoting efficient water usage in agriculture.",
+            "government_level": "Central Government",
+            "eligibility": "Farmers with agricultural land needing irrigation support",
+            "apply_link": "https://pmksy.gov.in"
+        }
+    ],
+    "maharashtra_schemes": [
+        {
+            "scheme_name": "Baliraja Krushi Pump Yojana",
+            "description": "Provides subsidy for electric or solar pumps to support irrigation for farmers.",
+            "government_level": "State Government (Maharashtra)",
+            "eligibility": "Farmers with agricultural land in Maharashtra",
+            "apply_link": "https://mahadiscom.in"
+        },
+        {
+            "scheme_name": "Mahatma Jyotirao Phule Shetkari Karj Mukti Yojana",
+            "description": "Loan waiver scheme providing financial relief to farmers with outstanding crop loans.",
+            "government_level": "State Government (Maharashtra)",
+            "eligibility": "Farmers with crop loans in Maharashtra",
+            "apply_link": "https://mjpsky.maharashtra.gov.in"
+        },
+        {
+            "scheme_name": "Maharashtra Crop Compensation Scheme",
+            "description": "Financial assistance scheme supporting farmers affected by floods, droughts, or other natural disasters.",
+            "government_level": "State Government (Maharashtra)",
+            "eligibility": "Farmers suffering crop loss in Maharashtra",
+            "apply_link": "https://krishi.maharashtra.gov.in"
+        }
+    ],
+    "bihar_schemes": [
+        {
+            "scheme_name": "Bihar Rajya Fasal Sahayata Yojana",
+            "description": "Provides compensation to farmers for crop loss due to natural disasters.",
+            "government_level": "State Government (Bihar)",
+            "eligibility": "Farmers registered in Bihar facing crop loss",
+            "apply_link": "https://pacsonline.bih.nic.in"
+        },
+        {
+            "scheme_name": "Bihar Krishi Input Anudan Scheme",
+            "description": "Provides subsidies for seeds, fertilizers, and agricultural inputs.",
+            "government_level": "State Government (Bihar)",
+            "eligibility": "Farmers affected by floods or droughts in Bihar",
+            "apply_link": "https://dbtagriculture.bihar.gov.in"
+        },
+        {
+            "scheme_name": "Diesel Anudan Scheme Bihar",
+            "description": "Provides diesel subsidy to farmers for irrigation during drought conditions.",
+            "government_level": "State Government (Bihar)",
+            "eligibility": "Farmers requiring irrigation support in Bihar",
+            "apply_link": "https://dbtagriculture.bihar.gov.in"
+        }
+    ]
+}
