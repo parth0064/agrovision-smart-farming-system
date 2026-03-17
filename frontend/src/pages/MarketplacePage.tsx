@@ -219,17 +219,17 @@ export default function MarketplacePage() {
     const searchLower = search.toLowerCase();
     const matchesSearch = 
       c.crop_name.toLowerCase().includes(searchLower) ||
-      c.farmer.name.toLowerCase().includes(searchLower) ||
-      (c.farmer.location && c.farmer.location.toLowerCase().includes(searchLower));
+      c.farmer?.name?.toLowerCase().includes(searchLower) ||
+      (c.farmer?.location && c.farmer.location.toLowerCase().includes(searchLower));
     
     const matchesState = selectedState === 'all' || 
-      (c.farmer.location && c.farmer.location.includes(selectedState));
+      (c.farmer?.location && c.farmer.location.includes(selectedState));
 
     return matchesSearch && matchesState;
   });
 
   const isOwnCrop = (crop: Crop) => {
-    return user?._id === crop.farmer._id;
+    return user?._id === crop.farmer?._id;
   };
 
   const getStatusBadge = (status: string) => {
@@ -332,7 +332,7 @@ export default function MarketplacePage() {
                     <tbody className="divide-y divide-border">
                       {myRequests.map(r => (
                         <tr key={r._id} className="hover:bg-muted/30 transition-colors">
-                          <td className="px-5 py-3 font-medium text-foreground">{r.farmerId?.name || 'N/A'}</td>
+                          <td className="px-5 py-3 font-medium text-foreground">{r.farmerId?.name || t('common.unknown') || 'N/A'}</td>
                           <td className="px-5 py-3 text-foreground">{r.cropName}</td>
                           <td className="px-5 py-3 text-foreground">{r.quantityRequested} kg</td>
                           <td className="px-5 py-3 text-foreground">₹{r.offeredPrice}/kg</td>
@@ -494,7 +494,7 @@ export default function MarketplacePage() {
                           <h3 className="font-display font-bold text-lg text-foreground truncate">{crop.crop_name}</h3>
                           <div className="flex flex-col">
                             <p className="text-xs text-muted-foreground flex items-center gap-1 truncate">
-                              <MapPin className="w-3 h-3" /> {crop.farmer.location || 'Not specified'}
+                              <MapPin className="w-3 h-3" /> {crop.farmer?.location || 'Not specified'}
                             </p>
                             {/* Price display */}
                             {(crop.price_per_kg > 0 || crop.price_per_quintal > 0) && (
@@ -540,7 +540,7 @@ export default function MarketplacePage() {
                 <div className="grid grid-cols-2 gap-3 text-sm mb-5 relative z-10">
                   <div className="bg-muted/50 rounded-xl p-3">
                     <p className="text-muted-foreground text-[11px] uppercase tracking-wider font-bold mb-0.5">{t('marketplace.table.farmer')}</p>
-                    <p className="font-semibold text-foreground truncate">{crop.farmer.name}</p>
+                    <p className="font-semibold text-foreground truncate">{crop.farmer?.name || 'Unknown'}</p>
                   </div>
                   <div className="bg-muted/50 rounded-xl p-3">
                     <p className="text-muted-foreground text-[11px] uppercase tracking-wider font-bold mb-0.5">{t('marketplace.table.qty')}</p>
@@ -597,7 +597,7 @@ export default function MarketplacePage() {
                 <div className="mb-6">
                   <h2 className="text-2xl font-display font-bold text-foreground">{t('marketplace.requestModal.title')}</h2>
                   <p className="text-muted-foreground text-sm mt-1">
-                    {t('marketplace.requestModal.subtitle', { crop: selectedCrop.crop_name, farmer: selectedCrop.farmer.name })}
+                    {t('marketplace.requestModal.subtitle', { crop: selectedCrop.crop_name, farmer: selectedCrop.farmer?.name || 'Unknown' })}
                   </p>
                   <p className="font-bold text-primary mt-2">
                     {t('marketplace.askingPrice') || 'Farmer\'s Price'}: ₹{selectedCrop.price_per_kg > 0 ? `${selectedCrop.price_per_kg}/kg` : `${selectedCrop.price_per_quintal}/Quintal`}

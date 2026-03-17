@@ -264,7 +264,7 @@ export default function BuyerRequestsPage() {
                           {req.cropName} <ArrowRight className="w-4 h-4 text-muted-foreground opacity-50" /> {req.quantityRequested} kg
                         </h3>
                         <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground font-medium">
-                          <User className="w-4 h-4" /> {t('buyerRequests.card.buyer')}: {req.buyerId.name}
+                          <User className="w-4 h-4" /> {t('buyerRequests.card.buyer')}: {req.buyerId?.name || 'Unknown'}
                         </div>
                       </div>
 
@@ -358,7 +358,7 @@ export default function BuyerRequestsPage() {
 
                 <h2 className="text-2xl font-display font-bold text-foreground mb-4">{t('buyerRequests.counterModal.title')}</h2>
                 <p className="text-muted-foreground mb-8 text-sm">
-                  {t('buyerRequests.counterModal.desc', { buyer: selectedRequest.buyerId.name, crop: selectedRequest.cropName, qty: selectedRequest.quantityRequested, price: selectedRequest.offeredPrice })}
+                  {t('buyerRequests.counterModal.desc', { buyer: selectedRequest.buyerId?.name || 'Unknown', crop: selectedRequest.cropName, qty: selectedRequest.quantityRequested, price: selectedRequest.offeredPrice })}
                 </p>
 
                 <form onSubmit={handleCounterOffer} className="space-y-6">

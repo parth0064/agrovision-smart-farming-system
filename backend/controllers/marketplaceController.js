@@ -37,8 +37,8 @@ exports.getMarketplaceCrops = async (req, res) => {
             };
         });
 
-        // Filter out expired crops (0 remaining days)
-        const availableCrops = formattedCrops.filter(c => c.remaining_days > 0);
+        // Filter out expired crops (0 remaining days) AND crops where farmer is missing (orphaned data)
+        const availableCrops = formattedCrops.filter(c => c.remaining_days > 0 && c.farmer);
 
         res.json(availableCrops);
     } catch (error) {
