@@ -337,60 +337,65 @@ const addExpense = async (req, res) => {
     try {
         const { expense_type, amount, notes, date } = req.body;
         const amountNum = Number(amount);
+        const createdAt = date ? new Date(date) : new Date();
 
-        // 1. Try to find in CropPlan
-        let crop = await CropPlan.findOne({ _id: req.params.id, user_id: req.user._id });
-        if (crop) {
-            const expense = await CropExpense.create({
-                crop_id: crop._id,
-                expense_type,
-                amount: amountNum,
-                notes,
-                createdAt: date ? new Date(date) : new Date()
-            });
-            recalculateAnalytics(crop._id, req.user._id);
-            return res.status(201).json(expense);
-        }
+        // Check if crop exists in any of the categories and belongs to user
+        let cropId = null;
+        let cropType = null;
+
+        // 1. Try CropPlan
+        const plan = await CropPlan.findOne({ _id: req.params.id, user_id: req.user._id });
+        if (plan) { cropId = plan._id; cropType = 'CropPlan'; }
 
         // 2. Try StorageInventory
-        const StorageInventory = require('../models/StorageInventory.js');
-        let storage = await StorageInventory.findOne({ _id: req.params.id, user_id: req.user._id });
-        if (storage) {
-            const expense = await CropExpense.create({
-                crop_id: storage._id,
-                expense_type,
-                amount: amountNum,
-                notes,
-                createdAt: date ? new Date(date) : new Date()
-            });
-            recalculateAnalytics(storage._id, req.user._id);
-            return res.status(201).json(expense);
+        if (!cropId) {
+            const StorageInventory = require('../models/StorageInventory.js');
+            const storage = await StorageInventory.findOne({ _id: req.params.id, user_id: req.user._id });
+            if (storage) { cropId = storage._id; cropType = 'StorageInventory'; }
         }
 
-        // 3. Lifecycle Bridge: ActiveCrop
-        const ActiveCrop = require('../models/ActiveCrop');
-        let activeCrop = await ActiveCrop.findOne({ _id: req.params.id, farmerId: req.user._id });
-        if (activeCrop) {
-            activeCrop.dailyExpenses.push({
-                expense_type,
-                amount: amountNum,
-                notes: notes || '',
-                date: date ? new Date(date) : new Date()
-            });
-            await activeCrop.save();
-            return res.status(201).json({ message: 'Expense added to growing crop' });
+        // 3. Try ActiveCrop (Growing)
+        if (!cropId) {
+            const ActiveCrop = require('../models/ActiveCrop');
+            const active = await ActiveCrop.findOne({ _id: req.params.id, farmerId: req.user._id });
+            if (active) { 
+                cropId = active._id; 
+                cropType = 'ActiveCrop';
+                // Sync with internal array for Growing page compatibility
+                active.dailyExpenses.push({ expense_type, amount: amountNum, notes, date: createdAt });
+                await active.save();
+            }
         }
 
-        // 4. Lifecycle Bridge: ShelfMonitoring
-        const ShelfMonitoring = require('../models/ShelfMonitoring');
-        let shelfCrop = await ShelfMonitoring.findOne({ _id: req.params.id, farmerId: req.user._id });
-        if (shelfCrop) {
-            shelfCrop.totalExpense = (shelfCrop.totalExpense || 0) + amountNum;
-            await shelfCrop.save();
-            return res.status(201).json({ message: 'Expense added to selling crop' });
+        // 4. Try ShelfMonitoring (Selling)
+        if (!cropId) {
+            const ShelfMonitoring = require('../models/ShelfMonitoring');
+            const shelf = await ShelfMonitoring.findOne({ _id: req.params.id, farmerId: req.user._id });
+            if (shelf) { 
+                cropId = shelf._id; 
+                cropType = 'ShelfMonitoring';
+                shelf.totalExpense = (shelf.totalExpense || 0) + amountNum;
+                await shelf.save();
+            }
         }
 
-        return res.status(404).json({ message: 'Crop not found' });
+        if (!cropId) return res.status(404).json({ message: 'Crop not found' });
+
+        // Centralized logging for ALL types
+        const expense = await CropExpense.create({
+            crop_id: cropId,
+            expense_type,
+            amount: amountNum,
+            notes,
+            createdAt
+        });
+
+        // Push to analytics if applicable
+        if (cropType === 'CropPlan' || cropType === 'StorageInventory') {
+            recalculateAnalytics(cropId, req.user._id);
+        }
+
+        res.status(201).json(expense);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -401,15 +406,35 @@ const addExpense = async (req, res) => {
 // @access  Private
 const getExpenses = async (req, res) => {
     try {
-        let crop = await CropPlan.findOne({ _id: req.params.id, user_id: req.user._id });
+        const id = req.params.id;
+        const userId = req.user._id;
 
-        if (!crop) {
-            const StorageInventory = require('../models/StorageInventory.js');
-            crop = await StorageInventory.findOne({ _id: req.params.id, user_id: req.user._id });
-            if (!crop) return res.status(404).json({ message: 'Crop not found' });
+        // Try centralized history first
+        let expenses = await CropExpense.find({ crop_id: id }).sort({ createdAt: -1 }).lean();
+
+        // Also check if it's an ActiveCrop with internal logs (Growing crops)
+        const ActiveCrop = require('../models/ActiveCrop');
+        const active = await ActiveCrop.findOne({ _id: id, farmerId: userId });
+        
+        if (active && active.dailyExpenses.length > 0) {
+            const internalExpenses = active.dailyExpenses.map(e => ({
+                _id: e._id,
+                expense_type: e.expense_type,
+                amount: e.amount,
+                notes: e.notes,
+                createdAt: e.date || e.createdAt || active.createdAt
+            }));
+
+            // Merge and remove duplicates (by ID if possible, but internal IDs are different)
+            // For simplicity and to avoid missing items, we'll just merge and sort.
+            // If they are legacy, they won't exist in CropExpense yet.
+            const sharedIds = new Set(expenses.map(e => e._id.toString()));
+            const uniqueInternal = internalExpenses.filter(e => !sharedIds.has(e._id.toString()));
+            
+            expenses = [...expenses, ...uniqueInternal].sort((a, b) => 
+                new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+            );
         }
-
-        const expenses = await CropExpense.find({ crop_id: crop._id }).sort({ createdAt: -1 });
 
         res.json(expenses);
     } catch (error) {
@@ -424,47 +449,50 @@ const addIncome = async (req, res) => {
     try {
         const { amount, source, notes, date } = req.body;
         const amountNum = Number(amount);
+        const createdAt = date ? new Date(date) : new Date();
         const CropIncome = require('../models/CropIncome.js');
 
+        let cropId = null;
+        let cropType = null;
+
         // 1. Try CropPlan
-        let crop = await CropPlan.findOne({ _id: req.params.id, user_id: req.user._id });
-        if (crop) {
-            const income = await CropIncome.create({
-                crop_id: crop._id,
-                amount: amountNum,
-                source: source || 'Market',
-                notes,
-                createdAt: date ? new Date(date) : new Date()
-            });
-            recalculateAnalytics(crop._id, req.user._id);
-            return res.status(201).json(income);
-        }
+        const plan = await CropPlan.findOne({ _id: req.params.id, user_id: req.user._id });
+        if (plan) { cropId = plan._id; cropType = 'CropPlan'; }
 
         // 2. Try StorageInventory
-        const StorageInventory = require('../models/StorageInventory.js');
-        let storage = await StorageInventory.findOne({ _id: req.params.id, user_id: req.user._id });
-        if (storage) {
-            const income = await CropIncome.create({
-                crop_id: storage._id,
-                amount: amountNum,
-                source: source || 'Market',
-                notes,
-                createdAt: date ? new Date(date) : new Date()
-            });
-            recalculateAnalytics(storage._id, req.user._id);
-            return res.status(201).json(income);
+        if (!cropId) {
+            const StorageInventory = require('../models/StorageInventory.js');
+            const storage = await StorageInventory.findOne({ _id: req.params.id, user_id: req.user._id });
+            if (storage) { cropId = storage._id; cropType = 'StorageInventory'; }
         }
 
-        // 3. Lifecycle Bridge: ShelfMonitoring
-        const ShelfMonitoring = require('../models/ShelfMonitoring');
-        let shelfCrop = await ShelfMonitoring.findOne({ _id: req.params.id, farmerId: req.user._id });
-        if (shelfCrop) {
-            shelfCrop.totalRevenue = (shelfCrop.totalRevenue || 0) + amountNum;
-            await shelfCrop.save();
-            return res.status(201).json({ message: 'Income recorded for selling crop' });
+        // 3. Try ShelfMonitoring (Selling)
+        if (!cropId) {
+            const ShelfMonitoring = require('../models/ShelfMonitoring');
+            const shelf = await ShelfMonitoring.findOne({ _id: req.params.id, farmerId: req.user._id });
+            if (shelf) { 
+                cropId = shelf._id; 
+                cropType = 'ShelfMonitoring';
+                shelf.totalRevenue = (shelf.totalRevenue || 0) + amountNum;
+                await shelf.save();
+            }
         }
 
-        return res.status(404).json({ message: 'Crop not found for income recording' });
+        if (!cropId) return res.status(404).json({ message: 'Crop not found' });
+
+        const income = await CropIncome.create({
+            crop_id: cropId,
+            amount: amountNum,
+            source: source || 'Market',
+            notes,
+            createdAt
+        });
+
+        if (cropType === 'CropPlan' || cropType === 'StorageInventory') {
+            recalculateAnalytics(cropId, req.user._id);
+        }
+
+        res.status(201).json(income);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -475,17 +503,8 @@ const addIncome = async (req, res) => {
 // @access  Private
 const getIncome = async (req, res) => {
     try {
-        let crop = await CropPlan.findOne({ _id: req.params.id, user_id: req.user._id });
-
-        if (!crop) {
-            const StorageInventory = require('../models/StorageInventory.js');
-            crop = await StorageInventory.findOne({ _id: req.params.id, user_id: req.user._id });
-            if (!crop) return res.status(404).json({ message: 'Crop not found' });
-        }
-
         const CropIncome = require('../models/CropIncome.js');
-        const income = await CropIncome.find({ crop_id: crop._id }).sort({ createdAt: -1 });
-
+        const income = await CropIncome.find({ crop_id: req.params.id }).sort({ createdAt: -1 });
         res.json(income);
     } catch (error) {
         res.status(500).json({ message: error.message });
